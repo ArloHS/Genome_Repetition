@@ -1,0 +1,23 @@
+<project>
+  <target name="clean">
+    <delete dir="../bin"/>
+    <delete file="../application.jar"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="../bin"/>
+    <javac srcdir="../src" destdir="../bin" debug="true"/>
+  </target>
+
+  <target name="jar">
+    <jar destfile="../application.jar" basedir="../bin">
+      <manifest>
+        <attribute name="Main-Class" value="Repeats"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run">
+    <java jar="../application.jar" fork="true"/>
+  </target>
+</project>
